@@ -1,9 +1,22 @@
+import Navbar from './components/Navbar.jsx'
+import HeroSection from './components/sections/HeroSection.jsx'
+import WhoAreWeSection from './components/sections/WhoAreWeSection.jsx'
+import DepartmentsSection from './components/sections/DepartmentsSection.jsx'
+import ArcadeSection from './components/sections/ArcadeSection.jsx'
+import Footer from './components/Footer.jsx'
+
 function App() {
   return (
-    <main style={{ fontFamily: 'system-ui', padding: '2rem', textAlign: 'center' }}>
-      <h1>WD-website-26-27</h1>
-      <p>Vite + React starter. CI is configured in .github/workflows/ci.yml.</p>
-    </main>
+    <>
+      <Navbar />
+      <main>
+        <HeroSection />
+        <WhoAreWeSection />
+        <DepartmentsSection />
+        <ArcadeSection />
+      </main>
+      <Footer />
+    </>
   )
 }
 
