@@ -1,6 +1,352 @@
 :root {
   color-scheme: light dark;
+  --color-primary-yellow: #facc15;
+  --color-text-white: #ffffff;
+  --color-dark-blue: #0d326f;
+  --color-navy: #0a254e;
+  --color-accent-blue: #0080ff;
+  --color-card-bg: #070f1e;
+  --color-light-blue: #00bfff;
 }
-body {
+
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background: url('./assets/bg-space.png') repeat center top / 100% auto;
+  background-color: #0d326f;
+  color: var(--color-text-white);
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+/* Navbar */
+.navbar {
+  background-color: rgba(13, 50, 111, 0.75);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.navbar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1rem 2.5rem;
+}
+
+.navbar__brand {
+  display: inline-flex;
+  align-items: center;
+}
+
+.navbar__logo {
+  display: block;
+  height: 3.25rem;
+  width: auto;
+}
+
+.navbar__links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  list-style: none;
+}
+
+.navbar__link {
+  display: inline-block;
+  padding: 0.4rem 1.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 9999px;
+  color: var(--color-text-white);
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  transition: all 0.2s ease-in-out;
+}
+
+.navbar__link:hover,
+.navbar__link.is-active {
+  background-color: var(--color-primary-yellow);
+  color: var(--color-navy);
+  border: 1px solid var(--color-primary-yellow);
+}
+
+.navbar__toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 0.5rem;
+  background: transparent;
+  color: var(--color-text-white);
+  line-height: 0;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.navbar__toggle:hover {
+  background-color: var(--color-primary-yellow);
+  color: var(--color-navy);
+  border-color: var(--color-primary-yellow);
+}
+
+@media (max-width: 768px) {
+  .navbar__inner {
+    padding: 0.75rem 1rem;
+  }
+
+  .navbar__toggle {
+    display: inline-flex;
+  }
+
+  .navbar__links {
+    display: none;
+  }
+
+  .navbar__links.is-open {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    gap: 0.5rem;
+    padding: 1rem;
+    background-color: rgba(10, 37, 78, 0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .navbar__links.is-open .navbar__link {
+    text-align: center;
+    font-size: 0.75rem;
+  }
+}
+
+/* Offset anchored sections below the sticky navbar */
+section[id] {
+  scroll-margin-top: 6rem;
+}
+
+/* Arcade section */
+.arcade-section {
+  padding: 4rem 2rem;
+}
+
+.arcade-frame {
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 3rem 2rem 2rem;
+  border: 4px solid var(--color-accent-blue);
+  background: transparent;
+  clip-path: polygon(
+    28px 0,
+    calc(100% - 28px) 0,
+    calc(100% - 28px) 14px,
+    calc(100% - 14px) 14px,
+    calc(100% - 14px) 28px,
+    100% 28px,
+    100% calc(100% - 28px),
+    calc(100% - 14px) calc(100% - 28px),
+    calc(100% - 14px) calc(100% - 14px),
+    calc(100% - 28px) calc(100% - 14px),
+    calc(100% - 28px) 100%,
+    28px 100%,
+    28px calc(100% - 14px),
+    14px calc(100% - 14px),
+    14px calc(100% - 28px),
+    0 calc(100% - 28px),
+    0 28px,
+    14px 28px,
+    14px 14px,
+    28px 14px
+  );
+}
+
+.arcade-frame::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: 50%;
+  width: 72px;
+  height: 6px;
+  transform: translateX(-50%);
+  background-color: var(--color-primary-yellow);
+}
+
+.arcade-frame__title-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.arcade-frame__title {
+  color: var(--color-primary-yellow);
+  font-family: 'Courier New', Courier, monospace;
+  font-size: clamp(2.5rem, 6vw, 3rem);
+  font-weight: 900;
+  letter-spacing: 0.1em;
+}
+
+.arcade-frame__bolt {
+  height: 3.5rem;
+  width: auto;
+}
+
+.arcade-frame__divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.arcade-frame__divider-line {
+  flex: 1;
+  height: 2px;
+  background-color: var(--color-primary-yellow);
+  opacity: 0.8;
+}
+
+.arcade-frame__joystick {
+  display: block;
+  height: 2.5rem;
+  width: auto;
+}
+
+.arcade-frame__subtitle {
+  margin-top: 1.25rem;
+  text-align: center;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.arcade-frame__subtitle--white {
+  color: var(--color-text-white);
+}
+
+.arcade-frame__subtitle--yellow {
+  color: var(--color-primary-yellow);
+}
+
+.arcade-cabinets {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem;
+  max-width: 800px;
+  margin: 2.5rem auto 0;
+  padding: 0;
+  list-style: none;
+}
+
+.arcade-card {
+  padding: 1.25rem 1.5rem 1.5rem;
+  border: 4px solid var(--color-accent-blue);
+  border-radius: 18px;
+  background-color: var(--color-card-bg);
+  text-align: center;
+  transition:
+    box-shadow 0.2s ease-in-out,
+    transform 0.2s ease-in-out;
+}
+
+.arcade-card:hover {
+  box-shadow: 0 0 24px rgba(0, 128, 255, 0.45);
+  transform: translateY(-2px);
+}
+
+.arcade-card__scores {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-family: ui-monospace, 'Cascadia Code', Menlo, Consolas, monospace;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--color-text-white);
+}
+
+.arcade-card__lock {
+  margin: 2rem 0;
+}
+
+.arcade-card__padlock {
+  height: 6rem;
+  width: auto;
+}
+
+.arcade-card__locked {
+  margin-top: 1rem;
+  color: var(--color-primary-yellow);
+  font-size: 1.5rem;
+  font-weight: 900;
+  letter-spacing: 0.15em;
+}
+
+.arcade-card__unlock {
+  font-family: ui-monospace, 'Cascadia Code', Menlo, Consolas, monospace;
+  font-size: 0.8rem;
+}
+
+.arcade-card__unlock-label {
+  color: var(--color-light-blue);
+}
+
+.arcade-card__unlock-date {
+  color: var(--color-primary-yellow);
+}
+
+.arcade-frame__launch {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+  padding: 1.5rem 0;
+}
+
+.arcade-frame__launch-line {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  left: 0;
+  height: 2px;
+  background-color: var(--color-primary-yellow);
+  opacity: 0.8;
+}
+
+.arcade-frame__rocket {
+  position: relative;
+  height: 5rem;
+  width: auto;
+}
+
+@media (max-width: 768px) {
+  .arcade-frame {
+    padding: 2rem 1.25rem 1.5rem;
+  }
+
+  .arcade-cabinets {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .arcade-card {
+    transition: none;
+  }
 }
