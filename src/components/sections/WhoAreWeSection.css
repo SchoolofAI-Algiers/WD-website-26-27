@@ -70,6 +70,16 @@
   margin-left: -50px;
 }
 
+.who-are-we-section__photo {
+  display: block;
+  width: 100%;
+  max-width: 340px;
+  min-width: 0;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
 
 .who-are-we-section__photo-two {
   margin-top: -8px;
@@ -96,5 +106,114 @@
   margin-top: -40px;
   height: auto;
   object-fit: contain;
+}
+
+/* ---------- Responsiveness ---------- */
+@media (max-width: 1024px) {
+  .who-are-we-section {
+    padding: 56px 0 32px 48px;
+  }
+
+  .who-are-we-section__photos {
+    gap: 24px;
+    margin-left: -24px;
+  }
+
+  .who-are-we-section__photo {
+    max-width: 300px;
+  }
+
+  .spider-man-image {
+    width: 42vw;
+    margin-left: -24px;
+    margin-top: -20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .who-are-we-section {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+    min-height: auto;
+    padding: 48px 1.25rem 32px;
+    overflow-x: clip;
+  }
+
+  .who-are-we-section__left {
+    max-width: 640px;
+  }
+
+  .who-are-we-section__title {
+    margin-bottom: 20px;
+    font-size: clamp(1.9rem, 8vw, 2.4rem);
+    line-height: 1.15;
+  }
+
+  .who-are-we-section__text {
+    gap: 12px;
+  }
+
+  .who-are-we-section__text p {
+    font-size: 0.85rem;
+    line-height: 1.7;
+    letter-spacing: 0.2px;
+  }
+
+  .who-are-we-section__tagline {
+    margin-top: 14px;
+    font-size: 0.85rem;
+  }
+
+  .who-are-we-section__photos {
+    gap: 14px;
+    margin-top: 24px;
+    margin-left: 0;
+  }
+
+  .who-are-we-section__photo {
+    flex: 1 1 0;
+    max-width: 100%;
+  }
+
+  .who-are-we-section__photo-two {
+    margin-top: 0;
+  }
+
+  .who-are-we-section__right {
+    justify-content: center;
+    margin-top: 8px;
+    pointer-events: none;
+  }
+
+  .spider-man-image {
+    width: min(78vw, 380px);
+    max-width: 100%;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .who-are-we-section {
+    padding: 40px 1.25rem 28px;
+  }
+
+  .who-are-we-section__text p {
+    font-size: 0.8rem;
+    line-height: 1.65;
+  }
+
+  .who-are-we-section__photos {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .who-are-we-section__photo-two {
+    transform: none;
+  }
+
+  .spider-man-image {
+    width: min(86vw, 320px);
+  }
 }
 

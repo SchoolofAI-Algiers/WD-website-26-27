@@ -389,6 +389,7 @@ section[id] {
 .departments-section__inner { width: min(100%, 1440px); margin: 0 auto; }
 .departments-section__header {
   display: flex; align-items: flex-end; justify-content: space-between; gap: 2rem; font-family: anton ;
+  padding-left: 85px; padding-right: 2rem;
 }
 .departments-section__eyebrow {
   font-family: Montserrat, sans-serif;

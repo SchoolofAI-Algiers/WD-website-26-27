@@ -80,10 +80,8 @@ function DepartmentsSection() {
       <div className="departments-section__inner bg-700-red">
         <header className="departments-section__header">
           <div>
-            <p className="departments-section__eyebrow">03 / DEPARTMENTS</p>
             <h2 id="departments-title" className="departments-section__title">PICK YOUR<br />DEPARTMENT</h2>
           </div>
-          <p className="departments-section__intro">Six departments, one lineup.<br />Click to pause / resume.</p>
         </header>
         <div className="departments-marquee">
           <div
