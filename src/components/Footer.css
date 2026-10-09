@@ -1,0 +1,146 @@
+/* 06 Footer — 1440x368, black, from Figma (ishraq / Desktop — Welcome Day 2026) */
+
+.site-footer {
+  background-color: #000000;
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+  color: #ffffff;
+  font-family: 'Montserrat', system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+.site-footer__inner {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 80px 120px 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.site-footer__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+.site-footer__brand {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 366px;
+  flex-shrink: 0;
+}
+
+.site-footer__logo {
+  display: block;
+  width: 180px;
+  height: 97px;
+  object-fit: contain;
+}
+
+.site-footer__meta {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 150%;
+  color: #ffffff;
+}
+
+.site-footer__nav,
+.site-footer__social {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.site-footer__label {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 140%;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #ffce05;
+}
+
+.site-footer__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.site-footer__link {
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 150%;
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.15s ease-in-out;
+}
+
+.site-footer__link:hover {
+  color: #ffce05;
+}
+
+.site-footer__bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+  padding-top: 28px;
+}
+
+.site-footer__bar-text {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 150%;
+  color: #ffffff;
+}
+
+/* Tablet: reduce side padding, allow wrapping */
+@media (max-width: 1024px) {
+  .site-footer__inner {
+    padding: 64px 40px 40px;
+  }
+}
+
+/* Mobile: stack rows, stack bar */
+@media (max-width: 768px) {
+  .site-footer__inner {
+    padding: 48px 24px 32px;
+    gap: 32px;
+  }
+
+  .site-footer__row {
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .site-footer__brand {
+    max-width: 100%;
+  }
+
+  .site-footer__logo {
+    width: 150px;
+    height: auto;
+  }
+
+  .site-footer__bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-footer__link {
+    transition: none;
+  }
+}
