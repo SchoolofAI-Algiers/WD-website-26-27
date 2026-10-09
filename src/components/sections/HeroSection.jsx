@@ -1,11 +1,6 @@
 import logoImg from '../../assets/Logo.svg'
 import './HeroSection.css'
 
-const containerStyle = {
-  padding: '4rem 2rem',
-  textAlign: 'center',
-}
-
 function HeroSection() {
   return (
     <section id="hero" className="hero-section">
