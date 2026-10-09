@@ -1,0 +1,100 @@
+
+.who-are-we-section {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 100vh;
+  padding: 70px 0 40px 85px;
+  box-sizing: border-box;
+  overflow: hidden;
+  font-family: "Montserrat", sans-serif;
+  color: #fff;
+}
+
+.who-are-we-section__left {
+  position: relative;
+  z-index: 2;
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.who-are-we-section__title {
+  margin: 0 0 28px;
+  font-size: clamp(2.2rem, 3.6vw, 3.2rem);
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.who-are-we-section__title span {
+  display: block;
+}
+
+.who-are-we-section__text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.who-are-we-section__text p {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 2.1;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.who-are-we-section__tagline {
+  margin: 16px 0 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: rgb(255, 206, 5);
+}
+
+/* ---------- Photos ---------- */
+.who-are-we-section__photos {
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+  margin-top: 36px;
+  margin-left: -50px;
+}
+
+
+.who-are-we-section__photo-two {
+  margin-top: -8px;
+  transform: rotate(-2deg);
+}
+
+
+
+.who-are-we-section__right {
+  position: relative;
+  z-index: 1;
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: -60px;
+  pointer-events: none;
+}
+
+.spider-man-image {
+  display: block;
+  width: 44vw;
+  max-width: 720px;
+  margin-left: -40px; 
+  margin-top: -40px;
+  height: auto;
+  object-fit: contain;
+}
+
