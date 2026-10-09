@@ -1,3 +1,6 @@
+import logoImg from '../../assets/Logo.svg'
+import './HeroSection.css'
+
 const containerStyle = {
   padding: '4rem 2rem',
   textAlign: 'center',
@@ -5,12 +8,62 @@ const containerStyle = {
 
 function HeroSection() {
   return (
-    <section id="hero" className="hero-section" style={containerStyle}>
+    <section id="hero" className="hero-section">
       <div className="hero-section__inner">
-        <h1 className="hero-section__title">Hero Section Placeholder</h1>
-        <p className="hero-section__subtitle">
-          Headline, tagline, and call-to-action buttons go here.
+        {/* Logo central */}
+        <img
+          src={logoImg}
+          alt="Welcome Day Logo"
+          className="hero__logo"
+        />
+
+        {/* Sur-titre */}
+        <p className="hero__eyebrow">
+          SCHOOL OF AI • ESI ALGIERS • 2026 - 2027
         </p>
+
+        {/* Titre principal */}
+        <h1 className="hero__title">
+          <span className="hero__title-white">ASSEMBLE YOUR</span>
+          <span className="hero__title-yellow">INTELLIGENCE</span>
+        </h1>
+
+        {/* Sous-tiitre */}
+        <p className="hero__subtitle">
+          Welcome Day 2026 • Step into the multiverse of AI.
+        </p>
+
+        {/* Capsule details WD */}
+        <div className="hero__event-capsule">
+          <div className="hero__event-item">
+            <span className="hero__event-label">DATE</span>
+            <span className="hero__event-value">October 15, 2026</span>
+          </div>
+
+          <div className="hero__event-divider" />
+
+          <div className="hero__event-item">
+            <span className="hero__event-label">TIME</span>
+            <span className="hero__event-value">14:00 – 18:00</span>
+          </div>
+
+          <div className="hero__event-divider" />
+
+          <div className="hero__event-item">
+            <span className="hero__event-label">VENUE</span>
+            <span className="hero__event-value">Main Campus Auditorium (Hall A)</span>
+          </div>
+        </div>
+
+        {/* Boutons d'action */}
+        <div className="hero__actions">
+          <button className="hero__btn hero__btn--primary">
+            -------------------
+          </button>
+          <button className="hero__btn hero__btn--outline">
+            -------------------
+          </button>
+        </div>
       </div>
     </section>
   )
