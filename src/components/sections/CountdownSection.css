@@ -1,0 +1,149 @@
+/* 02 Countdown — 1440x427, black, from Figma (ishraq / Desktop — Welcome Day 2026) */
+
+.countdown-section {
+  background-color: #000000;
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+  color: #ffffff;
+  font-family: 'Montserrat', system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+.countdown-section__inner {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 72px 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  text-align: center;
+}
+
+.countdown-section__eyebrow {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 140%;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #ffce05;
+}
+
+.countdown-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.countdown-group {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.countdown-unit {
+  width: 168px;
+  min-height: 180px;
+  padding: 28px 16px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: #000000;
+  border: 2px solid rgba(255, 206, 5, 0.28);
+  border-radius: 4px;
+}
+
+.countdown-unit__value {
+  font-family: 'Anton', Impact, sans-serif;
+  font-size: 88px;
+  line-height: 0.9;
+  color: #ffce05;
+}
+
+.countdown-unit__label {
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 140%;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.countdown-separator {
+  font-family: 'Anton', Impact, sans-serif;
+  font-size: 48px;
+  line-height: 1;
+  color: #ffce05;
+  user-select: none;
+}
+
+.countdown-section__note {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 150%;
+  color: #ffffff;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .countdown-section__inner {
+    padding: 56px 40px;
+  }
+
+  .countdown-unit {
+    width: 150px;
+    min-height: 165px;
+  }
+
+  .countdown-unit__value {
+    font-size: 72px;
+  }
+}
+
+/* Mobile: 2x2 grid, hide colons (no room for 4-across at 390px) */
+@media (max-width: 768px) {
+  .countdown-section__inner {
+    padding: 48px 24px;
+    gap: 24px;
+  }
+
+  .countdown-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    width: 100%;
+    max-width: 360px;
+  }
+
+  .countdown-group {
+    gap: 0;
+  }
+
+  .countdown-unit {
+    width: 100%;
+    min-height: 0;
+    padding: 20px 12px 16px;
+  }
+
+  .countdown-unit__value {
+    font-size: 56px;
+  }
+
+  .countdown-unit__label {
+    font-size: 12px;
+  }
+
+  .countdown-separator {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .countdown-unit,
+  .countdown-separator {
+    transition: none;
+  }
+}

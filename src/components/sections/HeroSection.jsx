@@ -32,7 +32,7 @@ function HeroSection() {
         <div className="hero__event-capsule">
           <div className="hero__event-item">
             <span className="hero__event-label">DATE</span>
-            <span className="hero__event-value">October 15, 2026</span>
+            <span className="hero__event-value">October 12, 2026</span>
           </div>
 
           <div className="hero__event-divider" />
