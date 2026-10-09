@@ -1,6 +1,6 @@
 
 import "./WhoAreWeSection.css";
-import spidermanImage from "../../assets/spiderman.png"; // adjust path to your image
+import spidermanImage from "../../assets/spiderman.png"; 
 import groupPhotoOne from "../../assets/group-photo-1.png";
 import groupPhotoTwo from "../../assets/group-photo-2.png";
 
