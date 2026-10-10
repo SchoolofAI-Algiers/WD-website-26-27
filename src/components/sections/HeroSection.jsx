@@ -50,15 +50,6 @@ function HeroSection() {
           </div>
         </div>
 
-        {/* Boutons d'action */}
-        <div className="hero__actions">
-          <button className="hero__btn hero__btn--primary">
-            -------------------
-          </button>
-          <button className="hero__btn hero__btn--outline">
-            -------------------
-          </button>
-        </div>
       </div>
     </section>
   )

@@ -114,49 +114,10 @@
     background-color: rgba(255, 255, 255, 0.15);
 }
 
-/* 6. Boutons CTA */
-.hero__actions {
-    display: flex;
-    gap: 1.25rem;
-    margin-top: 1rem;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.hero__btn {
-    padding: 0.85rem 2.5rem;
-    border-radius: 9999px;
-    font-weight: 700;
-    font-size: 0.95rem;
-    letter-spacing: 1px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    min-width: 180px;
-}
-
-.hero__btn--primary {
-    background-color: var(--color-primary-yellow);
-    color: #070f1e;
-    border: 2px solid var(--color-primary-yellow);
-}
-
-.hero__btn--primary:hover {
-    background-color: #fde047;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(250, 204, 21, 0.4);
-}
-
-.hero__btn--outline {
-    background-color: transparent;
-    color: var(--color-primary-yellow);
-    border: 2px solid var(--color-primary-yellow);
-}
-
-.hero__btn--outline:hover {
-    background-color: rgba(250, 204, 21, 0.1);
-    transform: translateY(-2px);
-}
-
+/* 6. Boutons CTA (removed)
+   Kept as reference: quiz buttons in QuizSection.css reuse these values
+   (pill 9999px, primary solid yellow / outline transparent, ~48px height,
+   hover lift + glow). */
 
 @media (max-width: 640px) {
     .hero__event-capsule {

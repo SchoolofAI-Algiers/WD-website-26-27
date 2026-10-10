@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 import './CountdownSection.css'
 
-// Welcome Day: 12.10.2026, 14:00
-const TARGET_DATE = new Date(2026, 9, 12, 14, 0, 0)
+// Welcome Day: 12.10.2026, 12:00
+const TARGET_DATE = new Date(2026, 9, 12, 12, 0, 0)
 
 function getTimeLeft(now) {
   const diff = Math.max(0, TARGET_DATE.getTime() - now.getTime())
@@ -60,8 +60,7 @@ function CountdownSection() {
         </div>
 
         <p className="countdown-section__note">
-          Live countdown to 12.10.2026, 14:00&nbsp;&nbsp;|&nbsp;&nbsp;the four
-          units update every second.
+          The multiverse opens October 12, 2026 at 12:00 — assemble on time.
         </p>
       </div>
     </section>

@@ -9,9 +9,11 @@ const NAV_LINKS = [
 ]
 
 const SOCIAL_LINKS = [
-  { href: '#', label: '[Social link]' },
-  { href: '#', label: '[Social link]' },
-  { href: '#', label: '[Social link]' },
+  { href: 'https://www.facebook.com/SchoolofAIAlgiers/', label: 'Facebook' },
+  { href: 'https://x.com/SoAIAlgiers', label: 'X (Twitter)' },
+  { href: 'https://www.instagram.com/soai_algiers/', label: 'Instagram' },
+  { href: 'https://www.linkedin.com/company/school-of-ai-algiers/posts/?feedView=all', label: 'LinkedIn' },
+  { href: 'https://www.youtube.com/@schoolofaialgiers', label: 'YouTube' },
 ]
 
 function Footer() {
@@ -28,7 +30,7 @@ function Footer() {
               height="97"
             />
             <p className="site-footer__meta">
-              October 12, 2026 · Main Campus Auditorium (Hall A)
+              October 12, 2026 · Green Space
             </p>
           </div>
 

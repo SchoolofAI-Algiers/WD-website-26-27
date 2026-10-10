@@ -7,6 +7,10 @@
   --color-accent-blue: #0080ff;
   --color-card-bg: #070f1e;
   --color-light-blue: #00bfff;
+  --color-panel: #020b18;
+  --color-plate: #0068d9;
+  --color-plate-dark: #073a70;
+  --color-score-blue: #dcebff;
 }
 
 * {
@@ -322,6 +326,92 @@ section[id] {
   color: #ffc800;
 }
 
+/* Unlocked cabinets. Locked cards keep the base rules above, unchanged. */
+.arcade-cabinets > li {
+  display: flex;
+  min-width: 0;
+}
+
+a.arcade-card.is-unlocked {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  height: 100%;
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+}
+
+a.arcade-card.is-unlocked .arcade-card__inner {
+  flex: 1;
+}
+
+/* Reserve two lines so both titles measure the same height. */
+a.arcade-card.is-unlocked .arcade-card__locked {
+  min-height: calc(2 * 1.2em);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+a.arcade-card.is-unlocked:hover,
+a.arcade-card.is-unlocked:focus-visible {
+  transform: translateY(-4px);
+  box-shadow:
+    0 12px 30px 0 rgba(0, 27, 64, 0.65),
+    0 0 28px 0 rgba(255, 206, 5, 0.35);
+}
+
+a.arcade-card.is-unlocked:active {
+  transform: translateY(2px);
+}
+
+a.arcade-card.is-unlocked:focus-visible {
+  outline: 3px solid var(--color-primary-yellow);
+  outline-offset: 3px;
+}
+
+a.arcade-card.is-unlocked:hover .arcade-blink {
+  color: #ffffff;
+}
+
+/* Powered-on screen glow (locked screens have none). */
+.arcade-card__inner.is-powered {
+  box-shadow: 0 0 24px 0 rgba(255, 206, 5, 0.25);
+}
+
+a.arcade-card.is-unlocked:hover .arcade-card__inner.is-powered {
+  box-shadow: 0 0 34px 0 rgba(255, 206, 5, 0.45);
+}
+
+.arcade-card__locked {
+  text-wrap: balance;
+}
+
+.arcade-blink {
+  animation: arcade-blink 1s steps(1) infinite;
+}
+
+@keyframes arcade-blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  a.arcade-card.is-unlocked,
+  a.arcade-card.is-unlocked:hover,
+  a.arcade-card.is-unlocked:focus-visible,
+  a.arcade-card.is-unlocked:active {
+    transform: none;
+    transition: none;
+  }
+
+  .arcade-blink {
+    animation: none;
+  }
+}
+
 .arcade-bottom-divider {
   display: flex;
   justify-content: center;
@@ -461,8 +551,13 @@ section[id] {
 .department-card-wrap {
   flex: 0 0 clamp(250px, 24vw, 330px);
   scroll-snap-align: start;
+  margin-top: 0;
+  transform: none;
 }
-.department-card-wrap:nth-child(even) { margin-top: 1.5rem; }
+/* Desktop-only stagger: even cards sit lower. Mobile resets it to 0 (see max-width block). */
+@media (min-width: 768px) {
+  .department-card-wrap:nth-child(even) { margin-top: 1.5rem; }
+}
 .department-card {
   display: flex; min-height: 580px; flex-direction: column; padding: .7rem;
   border: 1px solid #ffcc00cc; border-radius: 4px; background: #050506; color: #fff;
@@ -592,4 +687,113 @@ section[id] {
 }
 @media (max-width: 640px) and (prefers-reduced-motion: reduce) {
   .departments-marquee { padding: .75rem 1.25rem 1rem; }
+}
+
+/* Mobile carousel (<768px): manual scroll-snap instead of the auto marquee.
+   Desktop (min-width: 768px) above is untouched. */
+.departments-mobile-hint { display: none; }
+
+@media (max-width: 767.98px) {
+  .departments-section { min-height: 0; }
+  .departments-marquee {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    /* 85vw card + 7.5vw gutters centers first/last card; leaves a peek of the next one. */
+    padding: .75rem 7.5vw 1rem;
+    scroll-padding: 0 7.5vw;
+    -webkit-mask-image: none;
+    mask-image: none;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    overscroll-behavior-x: contain;
+  }
+  .departments-marquee::-webkit-scrollbar { display: none; }
+  .departments-track {
+    display: flex;
+    flex: 0 0 auto;
+    width: auto;
+    animation: none;
+    will-change: auto;
+    cursor: grab;
+    touch-action: pan-x pan-y;
+    transform: none;
+  }
+  .departments-track .departments-list { padding-right: 0; }
+  .departments-list {
+    width: auto;
+    align-items: stretch;
+    gap: 1rem;
+  }
+  .departments-list--duplicate { display: none; }
+  .department-card-wrap,
+  .department-card-wrap:nth-child(even) {
+    flex: 0 0 85vw;
+    max-width: 340px;
+    margin-top: 0;
+    transform: none;
+    scroll-snap-align: center;
+  }
+  .department-card {
+    min-height: 0;
+    height: auto;
+    transform: none;
+  }
+  .department-card__art--poster {
+    min-height: 0;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+  }
+  .department-card__poster {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+  }
+  .department-card__copy h3 {
+    font-size: clamp(1.05rem, 5.2vw, 1.4rem);
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    white-space: normal;
+    overflow: visible;
+  }
+  .departments-mobile-hint {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: .25rem 7.5vw 0;
+  }
+  .departments-mobile-hint__label {
+    color: #ffcc00;
+    font-family: Montserrat, sans-serif;
+    font-size: .7rem;
+    font-weight: 700;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    opacity: .85;
+    animation: departments-hint-nudge 2.2s ease-in-out infinite;
+  }
+  .departments-mobile-dots {
+    display: flex;
+    align-items: center;
+    gap: .45rem;
+  }
+  .departments-mobile-dots button {
+    width: .5rem;
+    height: .5rem;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: #ffffff38;
+    cursor: pointer;
+  }
+  .departments-mobile-dots button.is-active { background: #ffcc00; }
+  .departments-mobile-dots button:focus-visible { outline: 2px solid #ffcc00; outline-offset: 2px; }
+}
+
+@keyframes departments-hint-nudge {
+  0%, 100% { transform: translateX(0); opacity: .85; }
+  50% { transform: translateX(6px); opacity: .5; }
 }
