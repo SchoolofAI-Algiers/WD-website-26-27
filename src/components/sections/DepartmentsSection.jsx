@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import ironManPoster from '../../assets/dep/Art Plate (1).png'
 import lokiPoster from '../../assets/dep/Art Plate (2).png'
 import strangePoster from '../../assets/dep/Art Plate (4).png'
@@ -8,12 +8,12 @@ import cyclopsPoster from '../../assets/dep/Art Plate (6).png'
 
 const DEPARTMENTS = [
   // [id, name, slogan, description, accent, mark, poster, posterWidth, posterHeight]
-  ['01', '[DEPARTMENT 1]', '[DEPARTMENT SLOGAN]', '[Department description]', '#f6c900', 'AI', ironManPoster, 672, 825],
-  ['02', '[DEPARTMENT 2]', '[DEPARTMENT SLOGAN]', '[Department description]', '#ff5c38', '</>', strangePoster, 336, 413],
-  ['03', '[DEPARTMENT 3]', '[DEPARTMENT SLOGAN]', '[Department description]', '#8bda80', '{ }', lokiPoster, 336, 413],
-  ['04', '[DEPARTMENT 4]', '[DEPARTMENT SLOGAN]', '[Department description]', '#f486be', 'RO', visionPoster, 336, 413],
-  ['05', '[DEPARTMENT 5]', '[DEPARTMENT SLOGAN]', '[Department description]', '#63b8ff', 'SEC', doomPoster, 684, 789],
-  ['06', '[DEPARTMENT 6]', '[DEPARTMENT SLOGAN]', '[Department description]', '#c5a1ff', 'SOAI', cyclopsPoster, 684, 792],
+  ['01', 'LEAD', 'ONE CALL ASSEMBLES US ALL', 'Oversees all of SOAI — takes the lead on every project and always has the final say.', '#f6c900', 'LEAD', ironManPoster, 672, 825],
+  ['02', 'CONTENT CREATION', 'CONJURING STORIES FROM THE MULTIVERSE', 'Scripts, shoots and edits reels, recaps and interviews that make SOAI impossible to ignore.', '#ff5c38', 'CC', strangePoster, 336, 413],
+  ['03', 'EVENTS & LOGISTICS', 'MISCHIEF, MANAGED TO PERFECTION', 'Turns chaos into flawless Welcome Days, summits and workshops — venues, planning and backstage magic.', '#8bda80', 'EV', lokiPoster, 336, 413],
+  ['04', 'TECHNICAL', 'BUILT TO LEARN. BORN TO BUILD.', 'Ships AI workshops, projects and challenges — Python, ML and code that powers everything SOAI creates.', '#f486be', 'TECH', visionPoster, 336, 413],
+  ['05', 'MARKETING', 'EYES ON EVERY TIMELINE', 'Puts SOAI on every feed — strategy, comms and partnerships that keep the community locked in.', '#63b8ff', 'MKT', cyclopsPoster, 684, 792],
+  ['06', 'DESIGN', 'DOOM DESIGNS. ALL ELSE OBEYS.', 'Crafts posters, identities and stages with iron precision — every pixel rules with purpose.', '#c5a1ff', 'DES', doomPoster, 684, 789],
 ]
 
 // Single source of truth for the card markup. Rendered twice for the
@@ -67,12 +67,42 @@ function DepartmentCards({ hidden = false }) {
 
 function DepartmentsSection() {
   const [paused, setPaused] = useState(false)
+  const [activeDot, setActiveDot] = useState(0)
+  const marqueeRef = useRef(null)
   const togglePaused = () => setPaused((value) => !value)
   const handleTrackKeyDown = (event) => {
     if (event.key === 'Enter' || event.key === ' ') {
       event.preventDefault()
       togglePaused()
     }
+  }
+  const handleMarqueeScroll = () => {
+    const el = marqueeRef.current
+    if (!el) return
+    const cards = Array.from(el.querySelectorAll('.department-card-wrap')).filter(
+      (card) => card.offsetWidth > 0,
+    )
+    if (cards.length === 0) return
+    const center = el.scrollLeft + el.clientWidth / 2
+    let best = 0
+    let bestDist = Infinity
+    cards.forEach((card, index) => {
+      const cardCenter = card.offsetLeft + card.offsetWidth / 2
+      const dist = Math.abs(cardCenter - center)
+      if (dist < bestDist) {
+        bestDist = dist
+        best = index
+      }
+    })
+    setActiveDot((prev) => (prev === best ? prev : best))
+  }
+  const scrollToCard = (index) => {
+    const el = marqueeRef.current
+    if (!el) return
+    const cards = Array.from(el.querySelectorAll('.department-card-wrap')).filter(
+      (card) => card.offsetWidth > 0,
+    )
+    cards[index]?.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' })
   }
 
   return (
@@ -83,7 +113,7 @@ function DepartmentsSection() {
             <h2 id="departments-title" className="departments-section__title">PICK YOUR<br />DEPARTMENT</h2>
           </div>
         </header>
-        <div className="departments-marquee">
+        <div className="departments-marquee" ref={marqueeRef} onScroll={handleMarqueeScroll}>
           <div
             className={`departments-track${paused ? ' is-paused' : ''}`}
             role="button"
@@ -100,6 +130,23 @@ function DepartmentsSection() {
               <DepartmentCards hidden />
             </ul>
           </div>
+        </div>
+        <div className="departments-mobile-hint">
+          <span className="departments-mobile-hint__label" aria-hidden="true">swipe →</span>
+          <span className="departments-mobile-dots" role="tablist" aria-label="Department cards">
+            {DEPARTMENTS.map(([id], index) => (
+              <button
+                key={id}
+                type="button"
+                role="tab"
+                aria-selected={index === activeDot}
+                aria-label={`Go to department ${id}`}
+                tabIndex={0}
+                className={index === activeDot ? 'is-active' : undefined}
+                onClick={() => scrollToCard(index)}
+              />
+            ))}
+          </span>
         </div>
       </div>
     </section>

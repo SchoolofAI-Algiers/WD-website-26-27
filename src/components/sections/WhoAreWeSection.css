@@ -181,15 +181,11 @@
   }
 
   .who-are-we-section__right {
-    justify-content: center;
-    margin-top: 8px;
-    pointer-events: none;
+    display: none;
   }
 
   .spider-man-image {
-    width: min(78vw, 380px);
-    max-width: 100%;
-    margin: 0 auto;
+    display: none;
   }
 }
 
@@ -210,10 +206,6 @@
 
   .who-are-we-section__photo-two {
     transform: none;
-  }
-
-  .spider-man-image {
-    width: min(86vw, 320px);
   }
 }
 
