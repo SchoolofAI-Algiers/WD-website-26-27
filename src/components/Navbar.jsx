@@ -16,7 +16,7 @@ const barStyle = {
   WebkitBackdropFilter: 'blur(8px)',
 }
 
-function Navbar() {
+function Navbar({ minimal = false }) {
   const [activeId, setActiveId] = useState('hero')
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
@@ -44,6 +44,30 @@ function Navbar() {
   const handleLinkClick = (id) => {
     setActiveId(id)
     setIsMenuOpen(false)
+  }
+
+  // Standalone quiz page nav: logo + a way back, nothing else.
+  if (minimal) {
+    return (
+      <header className="navbar" style={barStyle}>
+        <nav
+          className="navbar__inner"
+          aria-label="Quiz navigation"
+          style={{ position: 'relative' }}
+        >
+          <a className="navbar__brand" href="#/" aria-label="Back to site home">
+            <img className="navbar__logo" src={logo} alt="WD-website-26-27 logo" />
+          </a>
+          <ul className="navbar__links" style={{ display: 'flex' }}>
+            <li className="navbar__item">
+              <a className="navbar__link" href="#/">
+                ← BACK TO SITE
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+    )
   }
 
   return (

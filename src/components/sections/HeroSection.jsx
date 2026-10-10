@@ -39,26 +39,17 @@ function HeroSection() {
 
           <div className="hero__event-item">
             <span className="hero__event-label">TIME</span>
-            <span className="hero__event-value">14:00 – 18:00</span>
+            <span className="hero__event-value">12:00 - 01:30</span>
           </div>
 
           <div className="hero__event-divider" />
 
           <div className="hero__event-item">
             <span className="hero__event-label">VENUE</span>
-            <span className="hero__event-value">Main Campus Auditorium (Hall A)</span>
+            <span className="hero__event-value">Green Space</span>
           </div>
         </div>
 
-        {/* Boutons d'action */}
-        <div className="hero__actions">
-          <button className="hero__btn hero__btn--primary">
-            -------------------
-          </button>
-          <button className="hero__btn hero__btn--outline">
-            -------------------
-          </button>
-        </div>
       </div>
     </section>
   )
