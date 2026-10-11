@@ -2,7 +2,7 @@
 // open the games. Flip ARCADE_UNLOCKED to true and both cabinets unlock;
 // nothing else needs changing.
 
-export const ARCADE_UNLOCKED = false
+export const ARCADE_UNLOCKED = true
 
 // Secret per-game routes (hash routes: static-hosting safe, no router).
 export const GAME_ROUTES = {
