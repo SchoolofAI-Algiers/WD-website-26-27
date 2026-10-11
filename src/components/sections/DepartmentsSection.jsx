@@ -1,19 +1,29 @@
 import { useRef, useState } from 'react'
-import ironManPoster from '../../assets/dep/Art Plate (1).png'
-import lokiPoster from '../../assets/dep/Art Plate (2).png'
-import strangePoster from '../../assets/dep/Art Plate (4).png'
-import visionPoster from '../../assets/dep/Art Plate (3).png'
-import doomPoster from '../../assets/dep/Art Plate (5).png'
+import ironManPoster from '../../assets/dep/new_for_cards/iron_man.png'
+import lokiPoster from '../../assets/dep/new_for_cards/Loki.png'
+import strangePoster from '../../assets/dep/new_for_cards/dr_strange.png'
+import visionPoster from '../../assets/dep/new_for_cards/vision.png'
+import doomPoster from '../../assets/dep/new_for_cards/dr_doom.png'
+import wongPoster from '../../assets/dep/new_for_cards/wong.png'
+import spideyPoster from '../../assets/dep/new_for_cards/spiderman.png'
 import cyclopsPoster from '../../assets/dep/Art Plate (6).png'
+import pantherPoster from '../../assets/dep/new_for_cards/black_panther.png'
+import scarletPoster from '../../assets/dep/new_for_cards/scarlet_witch.png'
+import daredevilPoster from '../../assets/dep/new_for_cards/Daredevil.png'
 
 const DEPARTMENTS = [
   // [id, name, slogan, description, accent, mark, poster, posterWidth, posterHeight]
-  ['01', 'LEAD', 'ONE CALL ASSEMBLES US ALL', 'Oversees all of SOAI — takes the lead on every project and always has the final say.', '#f6c900', 'LEAD', ironManPoster, 672, 825],
-  ['02', 'CONTENT CREATION', 'CONJURING STORIES FROM THE MULTIVERSE', 'Scripts, shoots and edits reels, recaps and interviews that make SOAI impossible to ignore.', '#ff5c38', 'CC', strangePoster, 336, 413],
-  ['03', 'EVENTS & LOGISTICS', 'MISCHIEF, MANAGED TO PERFECTION', 'Turns chaos into flawless Welcome Days, summits and workshops — venues, planning and backstage magic.', '#8bda80', 'EV', lokiPoster, 336, 413],
-  ['04', 'TECHNICAL', 'BUILT TO LEARN. BORN TO BUILD.', 'Ships AI workshops, projects and challenges — Python, ML and code that powers everything SOAI creates.', '#f486be', 'TECH', visionPoster, 336, 413],
-  ['05', 'MARKETING', 'EYES ON EVERY TIMELINE', 'Puts SOAI on every feed — strategy, comms and partnerships that keep the community locked in.', '#63b8ff', 'MKT', cyclopsPoster, 684, 792],
-  ['06', 'DESIGN', 'DOOM DESIGNS. ALL ELSE OBEYS.', 'Crafts posters, identities and stages with iron precision — every pixel rules with purpose.', '#c5a1ff', 'DES', doomPoster, 684, 789],
+  ['01', 'LEAD', 'ONE CALL ASSEMBLES US ALL', 'Oversees all of SOAI — takes the lead on every project and always has the final say.', '#f6c900', 'LEAD', ironManPoster, 720, 758],
+  ['02', 'CO-LEAD', 'YOUR FRIENDLY BACKUP HERO', 'Second in command — keeps every team in sync and swings in wherever help is needed.', '#ff3b30', 'CO', spideyPoster, 720, 758],
+  ['03', 'LOGISTICS', 'MISCHIEF, MANAGED TO PERFECTION', 'Turns chaos into flawless Welcome Days and summits — venues, planning and backstage magic.', '#8bda80', 'LOG', lokiPoster, 720, 758],
+  ['04', 'PROD', 'CHAOS, PERFECTLY ORCHESTRATED', 'Runs production end to end — schedules, shoots and stagecraft that hold the whole show together.', '#ff2d55', 'PROD', scarletPoster, 720, 758],
+  ['05', 'MULTIMEDIA', 'EVERY FRAME, A PORTAL', 'Films and edits reels, recaps and aftermovies — sound, motion and color that pull you in.', '#e8b64a', 'MED', wongPoster, 720, 758],
+  ['06', 'CONTENT CREATION', 'CONJURING STORIES FROM THE MULTIVERSE', 'Scripts, shoots and edits reels, recaps and interviews that make SOAI impossible to ignore.', '#ff5c38', 'CC', strangePoster, 720, 758],
+  ['07', 'TECHNICAL', 'BUILT TO LEARN. BORN TO BUILD.', 'Ships AI workshops, projects and challenges — Python, ML and code that powers everything SOAI creates.', '#f486be', 'TECH', visionPoster, 720, 758],
+  ['08', 'DESIGN', 'DOOM DESIGNS. ALL ELSE OBEYS.', 'Crafts posters, identities and stages with iron precision — every pixel rules with purpose.', '#c5a1ff', 'DES', doomPoster, 720, 758],
+  ['09', 'MARKETING', 'EYES ON EVERY TIMELINE', 'Puts SOAI on every feed — strategy, comms and partnerships that keep the community locked in.', '#63b8ff', 'MKT', cyclopsPoster, 684, 792],
+  ['10', 'DEV', 'SMASHING BUGS, SHIPPING FAST', 'Builds and maintains the website, tools and internal apps — clean code that holds under pressure.', '#00e676', 'DEV', pantherPoster, 720, 758],
+  ['11', 'RH', 'JUSTICE NEVER RESTS', 'Holds the team to its highest standard — people, culture and care behind every mission.', '#e50914', 'RH', daredevilPoster, 720, 758],
 ]
 
 // Single source of truth for the card markup. Rendered twice for the

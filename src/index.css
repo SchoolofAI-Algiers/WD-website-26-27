@@ -468,8 +468,9 @@ a.arcade-card.is-unlocked:hover .arcade-card__inner.is-powered {
 /* Department showcase */
 .departments-section {
   position: relative; min-height: 100vh; overflow: hidden;
-  /* Speed of one full marquee loop. Increase for slower, decrease for faster. */
-  --marquee-duration: 35s;
+  /* Speed of one full marquee loop. Increase for slower, decrease for faster.
+     11 cards/set (~4160px) at ~64s keeps the same ~65px/s pace as 6 cards at 35s. */
+  --marquee-duration: 64s;
   padding: clamp(2.5rem, 5vh, 4rem) 0 4rem;
   background-image: radial-gradient(circle at 13% 24%, #ffffffb3 0 1px, transparent 1.5px),
     radial-gradient(circle at 78% 15%, #ffffff8c 0 1px, transparent 1.5px),
