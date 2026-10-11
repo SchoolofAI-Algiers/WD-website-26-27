@@ -13,7 +13,7 @@ export const GAME_ROUTES = {
 const GAMES = [
   {
     id: 'sorcerer',
-    title: 'Which Wizerd Are You?',
+    title: 'Which Wizard Are You?',
     tagline: 'A personality test',
     route: GAME_ROUTES.sorcerer,
     // Per-game override. Falls back to ARCADE_UNLOCKED when omitted.
