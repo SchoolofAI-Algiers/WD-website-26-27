@@ -22,7 +22,7 @@ function StartScreen({ onStart }) {
       <img src={spidey} alt="" aria-hidden="true" className="g1-start__deco" />
       <p className="g1-eyebrow">GAME 1 · FIND YOUR MULTIVERSE SELF</p>
       <h2 className="g1-title">
-        WHICH WIZZERD <span className="g1-title--yellow">ARE U</span>
+        WHICH WIZARD <span className="g1-title--yellow">ARE U</span>
       </h2>
       <p className="g1-subtitle">
         The ultimate personality test for you — 10 questions, one true wizard.
