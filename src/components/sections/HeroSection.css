@@ -114,8 +114,43 @@
     background-color: rgba(255, 255, 255, 0.15);
 }
 
-/* 6. Boutons CTA (removed)
-   Kept as reference: quiz buttons in QuizSection.css reuse these values
+/* 6. Bouton CTA registration (same pattern as quiz .g1-btn--primary:
+   pill 9999px, solid yellow, ~48px height, hover lift + glow). */
+
+.hero__register-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    min-width: 44px;
+    padding: 0.85rem 2.25rem;
+    margin-top: 0.75rem;
+    border-radius: 9999px;
+    background-color: var(--color-primary-yellow, #facc15);
+    color: #070f1e;
+    border: 2px solid var(--color-primary-yellow, #facc15);
+    font-family: Montserrat, sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out, background-color 0.2s ease-out;
+}
+
+.hero__register-btn:hover {
+    background-color: #fde047;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(250, 204, 21, 0.4);
+}
+
+.hero__register-btn:focus-visible {
+    outline: 3px solid var(--color-primary-yellow, #facc15);
+    outline-offset: 2px;
+}
+
+/* Kept as reference: quiz buttons in QuizSection.css reuse these values
    (pill 9999px, primary solid yellow / outline transparent, ~48px height,
    hover lift + glow). */
 

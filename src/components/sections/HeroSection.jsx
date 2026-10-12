@@ -50,6 +50,16 @@ function HeroSection() {
           </div>
         </div>
 
+        {/* Bouton inscription */}
+        <a
+          href="https://docs.google.com/forms/d/e/1FAIpQLSeo1R5lqgK9jjQbA3z_5-zCiuUI9tBE5HBEIodXvZ8rXm4wWQ/viewform"
+          target="_blank"
+          rel="noreferrer"
+          className="hero__register-btn"
+        >
+          Register Now
+        </a>
+
       </div>
     </section>
   )
