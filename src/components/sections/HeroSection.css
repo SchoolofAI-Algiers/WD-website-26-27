@@ -121,28 +121,30 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-height: 48px;
+    min-height: 68px;
     min-width: 44px;
-    padding: 0.85rem 2.25rem;
-    margin-top: 0.75rem;
+    padding: 1.25rem 3.25rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
     border-radius: 9999px;
     background-color: var(--color-primary-yellow, #facc15);
     color: #070f1e;
     border: 2px solid var(--color-primary-yellow, #facc15);
     font-family: Montserrat, sans-serif;
-    font-weight: 700;
-    font-size: 0.95rem;
+    font-weight: 800;
+    font-size: 1.15rem;
     letter-spacing: 0.06em;
     text-transform: uppercase;
     text-decoration: none;
     cursor: pointer;
+    box-shadow: 0 6px 24px rgba(250, 204, 21, 0.35);
     transition: transform 0.2s ease-out, box-shadow 0.2s ease-out, background-color 0.2s ease-out;
 }
 
 .hero__register-btn:hover {
     background-color: #fde047;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(250, 204, 21, 0.4);
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 8px 28px rgba(250, 204, 21, 0.5);
 }
 
 .hero__register-btn:focus-visible {
@@ -155,6 +157,17 @@
    hover lift + glow). */
 
 @media (max-width: 640px) {
+    .hero__register-btn {
+        min-height: 56px;
+        width: 100%;
+        max-width: 340px;
+        padding: 1rem 1.5rem;
+        font-size: 1rem;
+        line-height: 1.3;
+        text-align: center;
+        white-space: normal;
+    }
+
     .hero__event-capsule {
         flex-direction: column;
         border-radius: 20px;

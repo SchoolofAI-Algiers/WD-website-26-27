@@ -23,6 +23,16 @@ function HeroSection() {
           <span className="hero__title-yellow">INTELLIGENCE</span>
         </h1>
 
+        {/* Bouton inscription */}
+        <a
+          href="https://docs.google.com/forms/d/e/1FAIpQLSeo1R5lqgK9jjQbA3z_5-zCiuUI9tBE5HBEIodXvZ8rXm4wWQ/viewform"
+          target="_blank"
+          rel="noreferrer"
+          className="hero__register-btn"
+        >
+          Register now and join us
+        </a>
+
         {/* Sous-tiitre */}
         <p className="hero__subtitle">
           Welcome Day 2026 • Step into the multiverse of AI.
@@ -49,16 +59,6 @@ function HeroSection() {
             <span className="hero__event-value">Green Space</span>
           </div>
         </div>
-
-        {/* Bouton inscription */}
-        <a
-          href="https://docs.google.com/forms/d/e/1FAIpQLSeo1R5lqgK9jjQbA3z_5-zCiuUI9tBE5HBEIodXvZ8rXm4wWQ/viewform"
-          target="_blank"
-          rel="noreferrer"
-          className="hero__register-btn"
-        >
-          Register Now
-        </a>
 
       </div>
     </section>
